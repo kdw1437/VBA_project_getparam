@@ -38,7 +38,7 @@ Sub ImportJSONtoExcel()
     rowNumber = 9
 
     ' Start data input from column B (column index 2).
-    colNumber = 10
+    colNumber = 15
 
     ' Write headers (keys from JSON data) to Excel.
     For Each Key In json("getParam1")(1).Keys
@@ -48,13 +48,13 @@ Sub ImportJSONtoExcel()
     Next Key
 
     ' Reset the column counter to 2 (for column B) and increment the row number to start data writing.
-    colNumber = 10
+    colNumber = 15
     rowNumber = rowNumber + 1
 
     ' Iterate over each item in the getParam2 array.
     For Each item In json("getParam1")
         ' Reset the column counter for each row (for column B).
-        colNumber = 10
+        colNumber = 15
         ' Iterate over each key-value pair in the item.
         For Each Key In item.Keys
             ' Write the value to the Excel cell.
@@ -68,6 +68,10 @@ Sub ImportJSONtoExcel()
         DoEvents ' Prevent Excel from freezing.
     Next item
 
+    ' Cleanup
+    Set json = Nothing
+    Set objRequest = Nothing
+End Sub
     ' Cleanup
     Set json = Nothing
     Set objRequest = Nothing
