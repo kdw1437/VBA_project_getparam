@@ -72,8 +72,5 @@ Sub ImportJSONtoExcel()
     Set json = Nothing
     Set objRequest = Nothing
 End Sub
-    ' Cleanup
-    Set json = Nothing
-    Set objRequest = Nothing
-End Sub
+
 
